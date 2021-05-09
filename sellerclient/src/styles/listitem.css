@@ -1,0 +1,99 @@
+.container {
+    padding: 16px;
+    background-color: white;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+
+table {
+    background-color: white;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #00009b;
+    color: white;
+    font-size: 22px;
+    font-style: italic;
+}
+
+td {
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.search_form input[type=text] {
+    float: right;
+    padding: 10px 15px;
+    background-color: #d7d7ff;
+    text-color: black;
+    border: none;
+    width: 70%;
+    margin-left: 3%;
+    margin-right: 0%;
+    margin-top: 0px;
+}
+
+.search_align {
+    float: left;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.search_icon {
+    float: left;
+    margin-left: 0%;
+    margin-right: 0%;
+    color: blue;
+}
+
+input[type=text]:focus {
+    background-color: #d5eaff;
+    outline: none;
+}
+
+.btn_edit {
+    padding: 3px 18px;
+    border: blue;
+    outline: blue;
+    background-color: #9999ff;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.btn_edit:hover {
+    background-color: #6cb6ff;
+}
+
+.btn_delete {
+    padding: 3px 18px;
+    border: black;
+    outline: black;
+    background-color: red;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.btn_delete:hover {
+    background-color: #ffb5da;
+}
+
+.hrStyles {
+    width: 100%;
+}
