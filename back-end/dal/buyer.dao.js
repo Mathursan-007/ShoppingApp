@@ -1,4 +1,4 @@
-var buyers = null;
+let buyers = null;
 
 setTimeout(() => {
     buyers = require('./connection').db('shoppingdb').collection('customers');

@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs');
 const { createSeller,loginSeller,addItem,getItems,deleteItem,getItem,updateItem} = require('../api/seller.api');
-
+const {auth}=require('../middleware/auth')
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -102,51 +102,6 @@ router.patch("/:id",async(req,res)=>{
 
 })
 
-
-function auth(req,res,next){
-
-    const authHeader=req.header('authorization');
-
-    //check token
-    if(authHeader==null){
-        return res.status(401).json({error:"Access-denied"});
-    }
-
-    //check validity
-    try{
-        const verified=jwt.verify(authHeader,"secret");
-
-        req.id={email:verified.email};
-        next();
-
-    }catch (e){
-        res.status(401).json({error:"Invalid-token"});
-    }
-
-}
-
-
-function auth(req,res,next){
-
-    const authHeader=req.header('authorization');
-
-    //check token
-    if(authHeader==null){
-        return res.status(401).json({error:"Access-denied"});
-    }
-
-    //check validity
-    try{
-        const verified=jwt.verify(authHeader,"secret");
-
-        req.id={email:verified.email};
-        next();
-
-    }catch (e){
-        res.status(401).json({error:"Invalid-token"});
-    }
-
-}
 
 
 module.exports=router;

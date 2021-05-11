@@ -43,5 +43,9 @@ const updateById = async (id,item)=>{
 
 }
 
+const updateQty=async(id,qty)=>{
+    return await items.updateOne({"_id":ObjectID(id)},{$set:{qty:qty}})
+}
 
-module.exports = { add,getBySeller,getByID,deleteById,updateById,getAll};
+
+module.exports = { add,getBySeller,getByID,deleteById,updateById,getAll,updateQty};

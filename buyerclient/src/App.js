@@ -9,7 +9,7 @@ import Login from "./components/Login";
 import Registration from "./components/Registration";
 import axios from 'axios';
 import ListItem from "./components/ListItem";
-import CardPayment from "./components/CardPayment";
+import Payment from "./components/Payment";
 
 class App extends React.Component {
 
@@ -30,6 +30,7 @@ class App extends React.Component {
 
     addItem = item => {
         this.setState({cart: [...this.state.cart,item]});
+        item.availableqty=item.qty-1
     }
 
     removeItem = item => {
@@ -38,6 +39,12 @@ class App extends React.Component {
                 return item !== cartItem;
             })
         });
+
+    }
+
+    updateQuantity=(qty,item)=>{
+
+        item.availableqty=qty;
 
     }
 
@@ -56,15 +63,15 @@ class App extends React.Component {
                             <Login/>
                         </Route>
                         <Route path="/items" >
-                            <ListItem items = {this.state.items} addItem={this.addItem} />
+                            <ListItem addItem={this.addItem} items = {this.state.items}  />
                         </Route>
                         <Route path="/cart">
-                            <Cart removeItem={this.removeItem} cart = {this.state.cart} />
+                            <Cart removeItem={this.removeItem} updateQuantity={this.updateQuantity} cart = {this.state.cart} />
                         </Route>
                         <Route path="/register">
                             <Registration/>
                         </Route>
-                        <Route path="/checkout" component={CardPayment}/>
+                        <Route path="/checkout" component={Payment}/>
                     </Switch>
                     <Footer/>
                 </Router>

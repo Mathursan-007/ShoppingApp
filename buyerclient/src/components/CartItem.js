@@ -11,6 +11,7 @@ class CartItem extends React.Component {
         if(this.state.qty!=this.props.item.qty) {
             this.setState({qty: this.state.qty+1});
             this.props.incrementTotal(this.props.item.price);
+            this.props.updateQty(this.props.item.qty-(this.state.qty+1),this.props.item)
         }
     }
 
@@ -19,6 +20,7 @@ class CartItem extends React.Component {
         if(this.state.qty!=1) {
             this.setState({qty: this.state.qty-1});
             this.props.decrementTotal(this.props.item.price);
+            this.props.updateQty(this.props.item.availableqty+1,this.props.item)
         }
 
     }
@@ -27,6 +29,7 @@ class CartItem extends React.Component {
 
         this.props.removeItem(item);
         this.props.decrementTotal(itemPrice);
+        this.props.updateQty(this.props.item.qty,this.props.item)
 
     }
 
@@ -40,7 +43,7 @@ class CartItem extends React.Component {
                     </div>
                 </td>
                 <td>
-                    <p>Product One</p>
+                    <p>{this.props.item.name}</p>
                 </td>
                 <td>
                     <div class="button-container">

@@ -67,6 +67,23 @@
 }
 
 
+.card2-btn {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    font-size:15px;
+    text-align: center;
+    color: crimson;
+    background-color: #d8e0fd;
+    border: none;
+    border-radius: 0.4rem;
+    transition: 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+}
+
+
+
 .card1-btn span {
     margin-left: 1rem;
     transition: 0.2s;

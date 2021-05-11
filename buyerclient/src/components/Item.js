@@ -17,13 +17,18 @@ class Item extends React.Component {
                                     <p className="card1-text"><b>Price:</b>{this.props.item.price} </p>
                                     <p className="card1-text"><b>Description:</b>{this.props.item.description} </p>
                                     <p className="card1-text"><b>Contact:</b>{this.props.item.seller} </p>
+                                    <p className="card1-text"><b>Available:</b>{this.props.item.qty} </p>
                                 </div>
                             </div>
 
+                            {this.props.item.qty > 0 ?
                             <button
                                 className="card1-btn"
                                 onClick={() => this.props.addItem(this.props.item)}
                             >Add-Cart <span>&rarr;</span></button>
+                            :
+                                <button className="card2-btn" onClick={() => this.props.addItem(this.props.item)} disabled={true}>Out-of-Stock</button>  }
+
                         </div>
                     </div>
                 </div>

@@ -56,6 +56,7 @@ class Cart extends React.Component {
                                 {this.props.cart.map(item =>
 
                                     <CartItem
+                                        updateQty={this.props.updateQuantity}
                                         removeItem={this.props.removeItem}
                                         item={item}
                                         incrementTotal= {this.incrementTotal}
@@ -76,7 +77,7 @@ class Cart extends React.Component {
                                 </tr>
                                 </tfoot>
                             </table>
-                            <Link to={{pathname:"/checkout",state:{total:this.state.total}}}><button class="Checkout">Check out</button></Link>
+                            <Link to={{pathname:"/checkout",state:{total:this.state.total,cart:this.state.cart}}}><button class="Checkout">Check out</button></Link>
                         </div>
                     </div>
                 </div>
