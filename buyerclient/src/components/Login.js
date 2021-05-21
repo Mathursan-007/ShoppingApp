@@ -14,9 +14,11 @@ class Login extends React.Component {
         }
     }
 
+
     handleInput = event => {
         this.setState({[event.target.name]:event.target.value});
     }
+
 
     handleSubmit=(event)=> {
 
@@ -25,10 +27,10 @@ class Login extends React.Component {
             email: this.state.email,
             password: this.state.password
         }
-        axios.post('http://localhost:5000/seller/login',user)
+        axios.post('http://localhost:5000/buyer/login',user)
             .then(res =>{
 
-                    localStorage.setItem("token",res.data);
+                    sessionStorage.setItem("token",res.data);
 
                     this.setState({
                         email: '',

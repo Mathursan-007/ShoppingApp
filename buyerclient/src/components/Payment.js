@@ -72,14 +72,14 @@ class Payment extends React.Component {
 
             axios.post('http://localhost:5000/buyer/cardpay',card,{
                 headers:{
-                    Authorization:localStorage.getItem("token")
+                    Authorization:sessionStorage.getItem("token")
                 }
             })
                 .then(res => {
                     if(res.data){
                         axios.post("http://localhost:5000/buyer/deliver",item,{
                             headers:{
-                                Authorization:localStorage.getItem("token")
+                                Authorization:sessionStorage.getItem("token")
                             }
                         })
                             .then(res=>{
@@ -115,14 +115,14 @@ class Payment extends React.Component {
 
             axios.post('http://localhost:5000/buyer/mobilepay',phone,{
                 headers:{
-                    Authorization:localStorage.getItem("token")
+                    Authorization:sessionStorage.getItem("token")
                 }
             })
                 .then(res => {
                     if(res.data){
                         axios.post("http://localhost:5000/buyer/deliver",item,{
                             headers:{
-                                Authorization:localStorage.getItem("token")
+                                Authorization:sessionStorage.getItem("token")
                             }
                         })
                             .then(res=>{

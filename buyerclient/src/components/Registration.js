@@ -47,7 +47,7 @@ class Registration extends React.Component {
                         password: '',
                         confirmPassword: ''
                     })
-                    localStorage.setItem("token",res.data);
+                    sessionStorage.setItem("token",res.data);
                     window.location = "/"
                 })
                 .catch(e=>{
