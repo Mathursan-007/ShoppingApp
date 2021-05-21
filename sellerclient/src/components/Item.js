@@ -13,7 +13,7 @@ class Item extends React.Component {
                 <td>{this.props.count}</td>
                 <td>{name}</td>
                 <td>{price}</td>
-                <td><Link to={{pathname:"edit",state:{id:_id}}}><button className="btn_edit">Edit</button></Link></td>
+                <td><Link to={{pathname:"edit",state:{item:this.props.item}}}><button className="btn_edit">Edit</button></Link></td>
                 <td><input type="button" name="Delete" value="Delete" className="btn_delete" onClick={()=>this.props.delete(_id)}/></td>
 
             </tr>

@@ -26,25 +26,36 @@ class EditItem extends React.Component {
 
     componentDidMount() {
 
-        let id =this.props.location.state.id;
+        let item =this.props.location.state.item;
 
-        axios.get('http://localhost:5000/seller/'+id)
-            .then(response => {
-                this.setState({
-                    _id:response.data._id,
-                    name: response.data.name,
-                    description: response.data.description,
-                    price: response.data.price,
-                    category: response.data.category,
-                    qty: response.data.qty,
-                    details:response.data
-                });
+        this.setState({
+                        _id:item._id,
+                        name: item.name,
+                        description: item.description,
+                        price: item.price,
+                        category: item.category,
+                        qty: item.qty,
+                        details:item
+                    });
 
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+
+        // axios.get('http://localhost:5000/seller/'+id)
+        //     .then(response => {
+        //         this.setState({
+        //             _id:response.data._id,
+        //             name: response.data.name,
+        //             description: response.data.description,
+        //             price: response.data.price,
+        //             category: response.data.category,
+        //             qty: response.data.qty,
+        //             details:response.data
+        //         });
+        //
+        //         console.log(response.data);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     })
     }
 
     handleSubmit = ev => {
@@ -71,14 +82,6 @@ class EditItem extends React.Component {
             }
         }
 
-
-
-        // formData.append("_id",this.state._id);
-        // formData.append("name",this.state.name);
-        // formData.append("description",this.state.description);
-        // formData.append("price",this.state.price);
-        // formData.append("category",this.state.category);
-        // formData.append("qty",this.state.qty)
 
 
         axios.patch('http://localhost:5000/seller/'+this.state._id, formData)
