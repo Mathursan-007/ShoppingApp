@@ -5,6 +5,7 @@ import axios from 'axios'
 class AddItem extends React.Component {
 
     constructor(props) {
+
         super(props);
 
         this.state = {
@@ -42,7 +43,7 @@ class AddItem extends React.Component {
 
         axios.post('http://localhost:5000/seller/add', formData,{
             headers:{
-                Authorization:localStorage.getItem("token")
+                Authorization:sessionStorage.getItem("token")
             }
         })
             .then(res => {

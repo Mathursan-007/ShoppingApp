@@ -32,7 +32,7 @@ class Login extends React.Component {
             axios.post('http://localhost:5000/seller/login',user)
                 .then(res =>{
 
-                    localStorage.setItem("token",res.data);
+                    sessionStorage.setItem("token",res.data);
 
                     this.setState({
                             email: '',

@@ -12,7 +12,7 @@ class NavBar extends React.Component {
 
     doLogout() {
 
-        localStorage.clear()
+        sessionStorage.clear()
         window.location = '/'
 
     }
@@ -20,8 +20,8 @@ class NavBar extends React.Component {
     componentDidMount() {
 
 
-        if(localStorage.token){
-            this.setState({user:decode(localStorage.token).email})
+        if(sessionStorage.token){
+            this.setState({user:decode(sessionStorage.token).email})
         }
 
     }

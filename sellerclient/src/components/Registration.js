@@ -36,6 +36,7 @@ class Registration extends React.Component {
             }
             axios.post('http://localhost:5000/seller/',seller)
                 .then(res => {
+
                     this.setState({
                         firstname: '',
                         lastname: '',
@@ -45,11 +46,13 @@ class Registration extends React.Component {
                         password: '',
                         confirmPassword: ''
                     })
-                    localStorage.setItem("token",res.data);
+                    sessionStorage.setItem("token",res.data);
                     window.location = "/items"
                 })
-                .catch(e=>{
-                    console.log(e);
+                .catch((e)=>{
+                    console.log(e)
+                    alert("Registration failed check Email and other details.")
+                    window.location="/register";
                 })
         }
 

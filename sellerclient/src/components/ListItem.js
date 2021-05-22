@@ -17,7 +17,7 @@ class ListItem extends React.Component {
     componentDidMount() {
          axios.get('http://localhost:5000/seller/items/',{
                  headers:{
-                     Authorization:localStorage.getItem("token")
+                     Authorization:sessionStorage.getItem("token")
                  }
               })
         .then(response => {
@@ -52,7 +52,7 @@ class ListItem extends React.Component {
 
 
 
-        if(localStorage.token){
+        if(sessionStorage.token){
 
             return (
                 <div>
