@@ -1,6 +1,11 @@
 const bcrypt =require('bcrypt')
-const { save,login } = require('../dal/seller.dao');
+const { save,login,checkUser} = require('../dal/seller.dao');
 const { add,getBySeller,deleteById,updateById} = require('../dal/items.dao');
+
+//check whether the seller's email is already registered
+const checkSeller = async (email)=>{
+    return await checkUser(email)
+}
 
 
 //passing the seller details to the dal layer
@@ -69,4 +74,4 @@ const updateItem = async(id,item)=>{
 }
 
 
-module.exports = { createSeller,loginSeller,addItem ,getItems,deleteItem,updateItem};
+module.exports = { createSeller,loginSeller,addItem ,getItems,deleteItem,updateItem,checkSeller};
