@@ -4,7 +4,7 @@ const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs');
-const { createSeller,loginSeller,addItem,getItems,deleteItem,updateItem} = require('../api/seller.api');
+const { createSeller,loginSeller,addItem,getItems,deleteItem,updateItem,checkSeller} = require('../api/seller.api');
 const {auth}=require('../middleware/auth')
 
 //Defining the location of the image and renaming the file name
@@ -46,14 +46,21 @@ let upload = multer({ storage, fileFilter });
 
 //Creating a seller with the given inputs received from the client request
 router.post("/",async (req,res)=>{
+
     let seller =req.body;
-    seller=await createSeller(seller);
+    seller=await checkSeller(seller.email);//check whether the email is already registered or not
     if(seller){
-        const accessToken=jwt.sign({email:seller.email},"secret")//creating the jwt token using the email and a string value
-        res.status(201).send(accessToken);
+        res.status(502).send("Registration failed");
     }else{
-        res.status(502).json("Registration failed");
+        seller=await createSeller(req.body);
+        if(seller){
+            const accessToken=jwt.sign({email:req.body.email},"secret")//creating the jwt token using the email and a string value
+            res.status(201).send(accessToken);
+        }else{
+            res.status(502).json("Registration failed");
+        }
     }
+
 
 })
 
@@ -67,7 +74,7 @@ router.post("/login",async(req,res)=>{
         const accessToken=jwt.sign({email:user.email},"secret")
         res.status(201).send(accessToken);
     }else{
-        res.send(502).json({error:"User doesn't exist"})
+        res.status(502)
     }
 
 })

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const jwt =require('jsonwebtoken');
-const { createBuyer,loginBuyer,getItems } = require('../api/buyer.api');
+const { createBuyer,loginBuyer,getItems,checkBuyer} = require('../api/buyer.api');
 const { validateCard } = require('../api/cardPayment.api');
 const { validateMobile } = require('../api/mobilePayment.api');
 const { validateDelivery } = require('../api/delivery.api');
@@ -10,17 +10,24 @@ const { auth }=require('../middleware/auth')
 //creating a buyer with the given inputs received from the client request
 router.post('/', async( req,res) => {
     let buyer = req.body;
-    buyer = await createBuyer(buyer);
+    buyer = await checkBuyer(buyer.email);//check whether the email is already registered or not
     if(buyer){
-        const accessToken=jwt.sign({email:buyer.email},"secret",{expiresIn: 1500})
-        res.status(201).send(accessToken);
+        res.status(502).send("Registration failed");
     }else{
-        res.send(502).send("Registration failed");
+        buyer = await createBuyer(req.body);
+        if(buyer){
+            const accessToken=jwt.sign({email:req.body.email},"secret",{expiresIn: 1500})
+            res.status(201).send(accessToken);
+        }else{
+            res.status(502).send("Registration failed");
+        }
     }
+
 });
 
 //checks if the user exists with the given username and password
 router.post("/login",async(req,res)=>{
+
 
     let user = req.body;
     let loginUser=await loginBuyer(user);
