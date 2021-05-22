@@ -26,7 +26,7 @@ class Index extends React.Component {
                                 <p className="price">$19.99</p>
                                 <p>Some text about the jeans. Super slim and comfy.</p>
                                 <p>
-                                    <button>Add to Cart</button>
+                                    <button>See Our Collections</button>
                                 </p>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ class Index extends React.Component {
                                 <p className="price">$19.99</p>
                                 <p>Some text about the jeans. Super slim and comfy.</p>
                                 <p>
-                                    <button>Add to Cart</button>
+                                    <button>See Our Collections</button>
                                 </p>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ class Index extends React.Component {
                                 <p className="price">$19.99</p>
                                 <p>Some text about the jeans. Super slim and comfy.</p>
                                 <p>
-                                    <button>Add to Cart</button>
+                                    <button>See Our Collections</button>
                                 </p>
                         </div>
 

@@ -53,7 +53,7 @@ class NavBar extends React.Component {
         return (
             <div>
                 <div className="header_container">
-                    <h1 className="heading1">LYNX Shopping</h1>
+                    <h1 className="heading1">LYNX Seller</h1>
                     <br/><br/><br/><br/>
                 </div>
                 <div className="navbar1">

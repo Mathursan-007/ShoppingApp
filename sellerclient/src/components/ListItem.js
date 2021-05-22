@@ -64,14 +64,13 @@ class ListItem extends React.Component {
                         <form className="search_form" action="#" method="post">
 
                             <div className="search_align">
-                                <input type="text" name="id" placeholder="Search for Items"/>
-                                <a href="#" className="search_icon"><i className="w3-xxlarge fa fa-search"></i></a>
+                                <Link to="/add"><button className="btn_edit">Add</button></Link>
                             </div>
 
                         </form>
                         <br/><br/>
                     </div>
-                    <Link to="/add"><button className="btn_edit">Add</button></Link>
+
                     <div className="container">
 
                         <table border="1">

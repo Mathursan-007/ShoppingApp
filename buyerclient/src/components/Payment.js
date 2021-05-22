@@ -237,7 +237,7 @@ class Payment extends React.Component {
                         <label>Total Amount</label><br/>
                         <input type="number" name="total" value={(this.state.total+Number(this.state.city))} onChange={this.handleInput} required/><br/><br/>
 
-                        <input type="submit" value="Confirm CardPayment" id="submit"/>
+                        <input type="submit" value="Confirm Payment" id="submit"/>
                         <input type="reset" value="Reset Form" id="reset"/>
 
                     </form>
