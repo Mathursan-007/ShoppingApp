@@ -50,8 +50,10 @@ class Registration extends React.Component {
                     sessionStorage.setItem("token",res.data);
                     window.location = "/"
                 })
-                .catch(e=>{
-                    console.log(e);
+                .catch((e)=>{
+                    console.log(e)
+                    alert("Registration failed check Email and other details.")
+                    window.location="/register";
                 })
         }
 
