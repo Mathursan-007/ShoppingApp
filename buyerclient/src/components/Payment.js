@@ -155,6 +155,7 @@ class Payment extends React.Component {
         if(this.state.payMethod=="Card"){
             return(
                 <div>
+                    <br/>
                     <h2>Card details</h2><br/>
 
                     <label>Enter Card Holder's Name</label><br/>
@@ -165,6 +166,7 @@ class Payment extends React.Component {
 
                     <label>Enter CVC Code</label><br/>
                     <input type="number" name="cvc" placeholder="Enter CVC Code" name={"cvcCode"} onChange={this.handleInput} required/><br/><br/><br/>
+                    <br/><br/>
                 </div>
              )
 
@@ -172,6 +174,7 @@ class Payment extends React.Component {
 
             return (
                 <div>
+                    <br/>
                     <h2>Payment Using Mobile Phone</h2>
 
                         <label>Enter Phone Number</label><br/><br/>
@@ -179,7 +182,7 @@ class Payment extends React.Component {
 
                         <label>Enter PIN</label><br/><br/>
                         <input type="number" name="pin" placeholder="Enter the 4-digit pin"  onChange={this.handleInput} required/><br/><br/><br/>
-
+                    <br/><br/>
                 </div>
             )
         }
@@ -200,12 +203,12 @@ class Payment extends React.Component {
 
                     <label>
                         Select your Payment method : </label>
-                    <select onChange={this.handleInput} name={"payMethod"} required>
+                    <select class="select" onChange={this.handleInput} name={"payMethod"} required>
                         <option>Select</option>
                         <option value="Card">Card</option>
                         <option value="Mobile">Mobile</option>
                     </select>
-
+                    <br/><br/>
 
                     <form onSubmit={this.handleSubmit}>
 
@@ -213,12 +216,13 @@ class Payment extends React.Component {
 
                         <h2>Shipping details</h2>
 
+                        <br/>
                         <label>Address</label><br/>
                         <input type="text" name="delivery" placeholder="Enter the shipping address" name={"deliveryAddress"} onChange={this.handleInput} required/><br/><br/>
 
                         <label>
                             Select your City : </label>
-                        <select value={this.state.city} onChange={this.handleInput} name={"city"} required>
+                        <select class="select" value={this.state.city} onChange={this.handleInput} name={"city"} required>
                             <option selected>Select</option>
                             <option value={200}>Colombo</option>
                             <option value={400}>Kandy</option>

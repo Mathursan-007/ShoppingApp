@@ -10,5 +10,74 @@
     width: 100%;
 }
 
+label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #00009b;
+}
 
+input[type=text], input[type=password], input[type=number], input[type=email]
+{
+    width: 20%;
+    font-family: Arial, Helevetica, sans-serif;
+    padding: 5px;
+    display: inline-block;
+    border: none;
+    background: #e6e6ff;
+}
 
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus
+{
+    background-color: #d5eaff;
+    outline: none;
+}
+
+#submit {
+    background-color: #00009b;
+    color: white;
+    padding: 5px;
+    border: none;
+    outline: #00009b;
+    font-size: 20px;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#submit:hover {
+    background-color: #9999ff;
+    padding: 5px;
+    font-style: italic;
+}
+
+#reset {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border: none;
+    outline: red;
+    margin-left: 4%;
+    font-size: 20px;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#reset:hover {
+    background-color: #f892e6;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.select {
+    width: 14%;
+    margin-left: 2%;
+    font-family: Arial, Helevetica, sans-serif;
+    padding: 8px;
+    display: inline-block;
+    border: none;
+    background: #e6e6ff;
+}
+
+.select:focus {
+    background-color: #d5eaff;
+    outline: none;
+}
