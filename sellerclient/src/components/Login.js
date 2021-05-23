@@ -40,9 +40,11 @@ class Login extends React.Component {
                         })
 
                         window.location="/items"
-                     }
-
-                    )
+                     })
+                .catch(e=>{
+                    alert("Login failed");
+                    window.location="/"
+                })
             }
 
 

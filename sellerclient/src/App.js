@@ -11,16 +11,6 @@ import ListItem from "./components/ListItem";
 
 function App() {
 
-    //const [user,setUser] = useState(" ");
-
-    useEffect(()=>{
-       // console.log(localStorage.token)
-            if (localStorage.token) {
-                return;
-            }
-    })
-
-
 
 
   return (
