@@ -19,7 +19,7 @@ const checkUser =async (email)=>{
 }
 
 
-//inserts an item record in the db with the given details
+//inserts a seller record in the db with the given details
 const save = async ({firstname,lastname, email, phone,address,password}) => {
     const result = await sellers.insertOne({firstname,lastname, email, phone,address,password});
     return result.ops[0];
@@ -29,7 +29,11 @@ const save = async ({firstname,lastname, email, phone,address,password}) => {
 const login = async (email)=>{
 
     const result = await sellers.findOne({email:email})
-    return result.password;
+    if(result){
+        return result.password;
+    }else{
+        return false;
+    }
 }
 
 module.exports = { save,login,checkUser};

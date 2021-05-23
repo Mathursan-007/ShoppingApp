@@ -29,7 +29,12 @@ const save = async ({firstname,lastname, email, phone,address,password}) => {
 const login = async (email)=>{
 
     const result = await buyers.findOne({email:email})
-    return result.password;
+    if(result){
+        return result.password;
+    }else{
+        return false;
+    }
+
 
 }
 

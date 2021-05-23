@@ -28,12 +28,6 @@ const getAll =async ()=>{
 
 }
 
-// //retrieving the items records from the db based on the seller who added it
-// const getByID =async(id)=>{
-//
-//     return await items.findOne({"_id":ObjectID(id)});
-//
-// }
 
 //deleting a particular item record from the db
 const deleteById =async(id)=>{
