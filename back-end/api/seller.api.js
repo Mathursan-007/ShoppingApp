@@ -29,8 +29,12 @@ const createSeller = async ({firstname,lastname, email, phone,address,password})
 const loginSeller = async ({email,password})=>{
 
     const pwd=await login(email);
-    if(bcrypt.compareSync(password,pwd)){ //password comparsion
-        return true;
+    if(pwd){
+        if(bcrypt.compareSync(password,pwd)){   //comparing the plain text of the password given at the login and the hashed password saved in the db.
+            return true;
+        }else{
+            return false;
+        }
     }else{
         return false;
     }
@@ -58,9 +62,6 @@ const getItems = async (seller)=>{
     return await getBySeller(seller);
 }
 
-// const getItem = async (id)=>{
-//     return getByID(id)
-// }
 
 //passing the item id of the item that need to deleted
 const deleteItem =async (id)=>{
